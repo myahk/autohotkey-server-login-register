@@ -1,3 +1,3 @@
 ﻿#include ../ServerLib.ahk
-License := new Server("test1234","test1234")
-MsgBox,% License.Register("test","test1234@test123.com")
+License := new Server("Test1111","Test1111")
+MsgBox,% License.Register("테스트Test1","test1234@test123.com")

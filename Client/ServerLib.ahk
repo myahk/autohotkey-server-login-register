@@ -1,6 +1,6 @@
 ﻿class Server
 {
-    _URL := "" ;Server URL
+    _URL := "http://kdevil2k.dothome.co.kr/" ;Server URL
     _Name := "Server"
     _ID := "" ;ID
     _PW := "" ;PW
@@ -75,7 +75,7 @@
         postData .= "hardnumber=" Trim(this.GetHddPh(0)) "&"
         postData .= "pcname=" A_ComputerName "&"
         postData .= "securitycode=" this.SHA512(this.MakeSecurityCode() this._ID "login")
-        MsgBox,%postData%
+        ; MsgBox,p- %postData%
 
         winHttp.SetRequestHeader("Content-Length",StrLen(postData))
         
@@ -83,13 +83,14 @@
         winHttp.WaitForResponse()
 
         Result := winHttp.ResponseText
+        ; MsgBox,1- %Result%
         StringGetPos, offSet,Result,=
         StringGetPos,index,Result,>
         Result := Trim(Result)
         Result := SubStr(Result,offSet+3,Strlen(Result)-offSet-4)
 
         FormatTime, Time,yyyyMMddHHmm,yyyyMMddHHmm
-        ;MsgBox,%Result%
+        ; MsgBox,2- %Result%
         if(Result=this.SHA512(SubStr(Time,1,StrLen(Time)-1) this._ID "NotLicense")) ;라이센스 없음
         {
             return -1
