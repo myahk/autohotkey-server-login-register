@@ -1,4 +1,8 @@
 ﻿#include ../ServerLib.ahk
+; #include ../../ServerLib_A.ahk
+; LicenseS := new Server_A("ID","PW")
+; MsgBox,% License.ResetPC("test1234")
+
 License := new Server("test1234","test1234")
 ; License := new Server("Test1111","Test1111")
 ; MsgBox,% License.Login()
@@ -25,5 +29,5 @@ switch (UserState)
 Return
 
 loginOK:
-    msgbox, % Server.ResetPC("test1234")
+    msgbox, % License.ResetPC("test1234")
 Return
