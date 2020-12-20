@@ -14,7 +14,7 @@ switch (UserState)
         ExitApp
     case "1":
         msgbox, 로그인 성공
-
+        gosub, loginOK
     case "0":
         msgbox, 로그인 실패
         return
@@ -22,3 +22,8 @@ switch (UserState)
         msgbox, 동작안됨
         ExitApp
 }
+Return
+
+loginOK:
+    msgbox, % Server.ResetPC("test1234")
+Return

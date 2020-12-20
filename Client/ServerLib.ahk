@@ -11,6 +11,31 @@
     __Delete(){
         
     }
+    ResetPC(ID){
+        winHttp := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+        URL := this._URL "Admin/ResetPC.php"
+        winHttp.Open("POST",URL)
+        winHttp.SetRequestHeader("Content-Type","application/x-www-form-urlencoded")
+        winHttp.SetRequestHeader("User-Agent","System-"this._Name "-adminrequest")
+
+        postData := "id=" ID "&"
+        postData .= "securitycode=" this.SHA512(this.MakeSecurityCode() "System-" this._Name "-adminrequest" "adminrequest")
+        winHttp.SetRequestHeader("Content-Length",StrLen(postData))
+        winHttp.Send(postData)
+        winHttp.WaitForResponse()
+
+        Result := winHttp.ResponseText
+        Result := Trim(Result)
+        IfInString, Result, 정상처리
+        {
+            return True
+        }
+        else{
+            MsgBox,%Result%
+            return false
+        }
+    }
+
     ResetPassword(){
         if(this.Login() != true){
             return false
