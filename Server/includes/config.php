@@ -7,10 +7,10 @@ define('DIR', 'Server'); //디렉터리 명
 define('SERVERNAME', 'Server'); //서버 이름,클라이언트 Server 클래스랑 동일해야함
 define('URL', 'http://example.com/'); //웹 URL
 //database
-define('DBHOST', 'localhost');
-define('DBUSER', 'dbid');
-define('DBPASS', 'dbpw');
-define('DBNAME', 'dbname');
+define('DBHOST','localhost');
+define('DBUSER','kdevil2k');
+define('DBPASS','ks!882626');
+define('DBNAME','kdevil2k');
 
 //email
 define('EMAIL_ID', ''); //구글 이메일 아이디
