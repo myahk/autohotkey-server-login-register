@@ -29,5 +29,6 @@ switch (UserState)
 Return
 
 loginOK:
+; 종료시 중복로그인 리셋하기
     msgbox, % License.ResetPC("test1234")
 Return
